@@ -21,12 +21,14 @@ while game_on:
     car.create_car()
     car.move()
 
+    # DETECTS WHEN PLAYER REACHES FINISH LINE
     if player.ycor() == 280:
         player.restart()
         car.car_speed *= 0.009
         scoreboard.score += 1
         scoreboard.point()
 
+    # DETECTS WHEN PLAYER COLLIDES WITH CAR
     for i in car.car_list:
         if player.distance(i) < 20:
             scoreboard.game_over()
